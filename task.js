@@ -46,7 +46,7 @@ var my_schedule = cron.schedule(
 //#region Github Actions持续唤醒
 //一个每半分钟执行一次的job,用于判断是否即将到达执行超时时间
 
-function task() {
+async function task() {
     console.log("task running");
     var now_time = new Date().getTime();
     if (now_time < RUN_END_TIME) {
