@@ -1,4 +1,4 @@
-name: t工业品爱消除1
+name: t工业品爱消除2
 
 on:
     workflow_dispatch:
@@ -21,7 +21,7 @@ jobs:
             - name: 安装依赖包
               run: |
                   npm install
-            - name: "运行【自定义工业品爱消除1】"
+            - name: "运行【自定义工业品爱消除2】"
               run: |
                   node task.js
               env:
