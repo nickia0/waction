@@ -36,10 +36,6 @@ var my_schedule = cron.schedule(
     () => {
         console.log(`北京时间 (UTC+08)：${new Date(new Date().getTime() + 8 * 60 * 60 * 1000).toLocaleString()}}`);
         //每次运行前,检测之前的是否存在,存在的话则清理掉
-        if (my_schedule) {
-            console.log("准备自我毁灭");
-            my_schedule.stop();
-        }
         task1();
     },
     { timezone: "Asia/Shanghai" }
@@ -63,6 +59,11 @@ async function task1() {
                 console.log("尝试唤醒新的脚本失败,稍后可能会进行重试");
             }
         });
+    } else {
+        if (my_schedule) {
+            console.log("准备自我毁灭");
+            my_schedule.stop();
+        }
     }
 }
 
