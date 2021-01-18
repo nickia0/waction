@@ -37,7 +37,7 @@ var my_schedule = cron.schedule(
         console.log(`北京时间 (UTC+08)：${new Date(new Date().getTime() + 8 * 60 * 60 * 1000).toLocaleString()}}`);
         //每次运行前,检测之前的是否存在,存在的话则清理掉
         if (my_schedule) my_schedule.stop();
-        task();
+        task1();
     },
     { timezone: "Asia/Shanghai" }
 );
@@ -46,7 +46,7 @@ var my_schedule = cron.schedule(
 //#region Github Actions持续唤醒
 //一个每半分钟执行一次的job,用于判断是否即将到达执行超时时间
 
-async function task() {
+async function task1() {
     console.log("task running");
     var now_time = new Date().getTime();
     if (now_time < RUN_END_TIME) {
