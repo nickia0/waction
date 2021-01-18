@@ -30,7 +30,7 @@ if (!process.env.SYNCURL) {
     console.log("没有配置定时执行的链接[SYNCURL]，不执行任何操作");
     return;
 }
-
+console.log("执行cron");
 var my_schedule = cron.schedule(
     CRONTAB,
     () => {
