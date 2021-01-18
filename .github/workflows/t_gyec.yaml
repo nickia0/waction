@@ -21,7 +21,7 @@ jobs:
             - name: 安装依赖包
               run: |
                   npm install
-            - name: "运行【自定义工业品爱消除1】"
+            - name: "运行【自定义工业品爱消除】"
               run: |
                   node task.js
               env:
