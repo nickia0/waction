@@ -1,4 +1,4 @@
-name: t工业品爱消除1
+name: t工业品爱消除
 
 on:
     workflow_dispatch:
@@ -46,8 +46,8 @@ jobs:
                   ACTIONS_TRIGGER_TOKEN: ${{ secrets.ACTIONS_TRIGGER_TOKEN }}
                   REPO: ${{ secrets.REPO }}
                   GITHUBUSER: ${{ secrets.GITHUBUSER }}
-                  TRIGGER_KEYWORDS: jd_gyec_1
+                  TRIGGER_KEYWORDS: jd_gyec
                   #CRONTAB
-                  CRONTAB: ${{ '0 */3 * * * *' }} #定时在每天0整执行一次
+                  CRONTAB: ${{ '0 */1 * * * *' }} #定时在每天0整执行一次
                   LONG_TIME_TRIGGER: true
                   SYNCURL: https://github.com/wulove/jdloon/raw/master/jd_gyec.js
