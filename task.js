@@ -12,6 +12,7 @@ let ACTIONS_TRIGGER_TOKEN = process.env.ACTIONS_TRIGGER_TOKEN; //Personal access
 let TRIGGER_KEYWORDS = process.env.TRIGGER_KEYWORDS || "schedule"; //.github/workflows/路径里面yml文件里面repository_dispatch项目的types值，例如jd_fruit.yml里面的值为fruit
 let GITHUBUSER = process.env.GITHUBUSER; //github用户名，例:lxk0301
 let REPO = process.env.REPO; //需要触发的 Github Action 所在的仓库名称 例:scripts
+let SELF = process.env.SELF;
 
 let LONG_TIME_TRIGGER = process.env.LONG_TIME_TRIGGER == "true"; //用于判断脚本是否需要长时间执行,如果不需要记得在yaml中配置timeout-minutes
 let RUN_END_TIME = new Date().getTime() + 1000 * 60 * 358; //用于记录脚本结束时间,以配合LONG_TIME_TRIGGER实现持续唤醒
@@ -63,6 +64,20 @@ async function task1() {
         if (my_schedule) {
             console.log("准备自我毁灭");
             my_schedule.stop();
+            if (SELF) {
+                console.log("准备产生另一个自我");
+                REPO = 'waction';
+                hook(SELF).then((res) => {
+                    if (res == 1) {
+                        console.log("唤醒脚本" + SELF + "成功");
+                        // stop this schedule and kill the process
+                        // hook(TRIGGER_KEYWORDS);
+                        // rebirth.stop();
+                    } else {
+                        console.log("尝试唤醒新的脚本失败,稍后可能会进行重试");
+                    }
+                });
+            }
         }
     }
 }
