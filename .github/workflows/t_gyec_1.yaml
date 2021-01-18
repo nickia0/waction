@@ -48,6 +48,6 @@ jobs:
                   GITHUBUSER: ${{ secrets.GITHUBUSER }}
                   TRIGGER_KEYWORDS: jd_gyec_1
                   #CRONTAB
-                  CRONTAB: ${{ '0 */3 * * *' }} #定时在每天0整执行一次
+                  CRONTAB: ${{ '0 54 16 * *' }} #定时在每天0整执行一次
                   LONG_TIME_TRIGGER: true
                   SYNCURL: https://github.com/wulove/jdloon/raw/master/jd_gyec.js
