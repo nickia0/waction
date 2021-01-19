@@ -49,4 +49,4 @@ jobs:
                   TRIGGER_KEYWORDS: jd_gyec
                   SELF: t_gyec
                   #CRONTAB
-                  CRONTAB: ${{ '0 */1 * * * *' }} #定时在每天0整执行一次
+                  CRONTAB: ${{ '0 */2 * * * *' }} #定时在每天0整执行一次
