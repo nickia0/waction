@@ -69,7 +69,7 @@ async function task1() {
                 REPO = 'waction';
                 hook(SELF_TRIGGER).then((res) => {
                     if (res == 1) {
-                        console.log("唤醒自我" + SELF + "成功");
+                        console.log("唤醒自我" + SELF_TRIGGER + "成功");
                         // stop this schedule and kill the process
                         // hook(TRIGGER_KEYWORDS);
                         // rebirth.stop();
