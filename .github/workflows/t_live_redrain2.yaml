@@ -1,11 +1,11 @@
-name: oh京小超领豆
+name: t工业品爱消除
 
 on:
     workflow_dispatch:
-    schedule:
-        - cron: "0 10 * * *"
+#    schedule:
+#        - cron: "40 22 * * *"
     repository_dispatch:
-        types: t_live_redrain2
+        types: t_gyec
 
 jobs:
     build:
@@ -21,10 +21,9 @@ jobs:
             - name: 安装依赖包
               run: |
                   npm install
-            - name: "运行【oh京小超领豆】"
-              timeout-minutes: 280
+            - name: "运行【自定义工业品爱消除】"
               run: |
-                  node once_hook.js
+                  node task.js
               env:
                   #推送专用
                   PUSH_KEY: ${{ github.event.client_payload.PUSH_KEY || secrets.PUSH_KEY }}
@@ -47,6 +46,9 @@ jobs:
                   ACTIONS_TRIGGER_TOKEN: ${{ secrets.ACTIONS_TRIGGER_TOKEN }}
                   REPO: ${{ secrets.REPO }}
                   GITHUBUSER: ${{ secrets.GITHUBUSER }}
-                  TRIGGER_KEYWORDS: jd_live_redrain2
+                  TRIGGER_KEYWORDS: jd_gyec
+                  SELF: t_gyec
                   #CRONTAB
-                  CRONTAB: ${{ '0,1 19-21/1 * * *' }}
+                  CRONTAB: ${{ '0 */1 * * * *' }} #定时在每天0整执行一次
+                  LONG_TIME_TRIGGER: true
+                  SYNCURL: https://github.com/wulove/jdloon/raw/master/jd_gyec.js
