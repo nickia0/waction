@@ -49,4 +49,4 @@ jobs:
                   GITHUBUSER: ${{ secrets.GITHUBUSER }}
                   TRIGGER_KEYWORDS: jd_baiTiao
                   #CRONTAB
-                  CRONTAB: ${{ '0 0 0,9 * * *' }}
+                  CRONTAB: ${{ '45,55 59 8,23 * * *' }}
