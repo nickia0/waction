@@ -1,11 +1,11 @@
-name: 天天领白条券
+name: 全民炸年兽
 
 on:
     workflow_dispatch:
 #    schedule:
 #        - cron: "0 0,9 * * *"
     repository_dispatch:
-        types: jd_nianBest
+        types: jd_nianBeast
 
 jobs:
     build:
@@ -21,7 +21,7 @@ jobs:
             - name: 安装依赖包
               run: |
                   npm install
-            - name: "运行【天天领白条券】"
+            - name: "运行【全民炸年兽】"
               run: |
                   node onlyOneExecute.js
               env:
@@ -39,7 +39,7 @@ jobs:
                   PUSH_PLUS_TOKEN: ${{ github.event.client_payload.PUSH_PLUS_TOKEN || secrets.PUSH_PLUS_TOKEN }}
                   PUSH_PLUS_USER: ${{ github.event.client_payload.PUSH_PLUS_USER || secrets.PUSH_PLUS_USER }}
                   #通用配置
-                  JD_COOKIE: ${{ secrets.JD_COOKIE_1 }}
+                  JD_COOKIE: ${{ secrets.JD_COOKIE }}
                   JD_DEBUG: ${{ github.event.client_payload.JD_DEBUG || secrets.JD_DEBUG }}
                   DO_NOT_FORK: ${{ github.event.client_payload.DO_NOT_FORK || secrets.DO_NOT_FORK }}
-                  SYNCURL: https://raw.githubusercontent.com/yangtingxiao/QuantumultX/master/scripts/jd/jd_baiTiao.js
+                  SYNCURL: https://raw.githubusercontent.com/yangtingxiao/QuantumultX/master/scripts/jd/jd_nianBeast.js
