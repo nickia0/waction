@@ -50,5 +50,3 @@ jobs:
                   SELF: t_gyec
                   #CRONTAB
                   CRONTAB: ${{ '0 */1 * * * *' }} #定时在每天0整执行一次
-                  LONG_TIME_TRIGGER: true
-                  SYNCURL: https://github.com/wulove/jdloon/raw/master/jd_gyec.js
