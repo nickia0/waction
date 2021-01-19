@@ -1,11 +1,11 @@
-name: w京东汽车兑换
+name: oh京东汽车兑换
 
 on:
     workflow_dispatch:
     schedule:
         - cron: "0 15 * * *"
     repository_dispatch:
-        types: schedule
+        types: oh_car_exchange
 
 jobs:
     build:
@@ -21,10 +21,10 @@ jobs:
             - name: 安装依赖包
               run: |
                   npm install
-            - name: "运行【自定义京东汽车兑换】"
+            - name: "运行【oh京东汽车兑换】"
               timeout-minutes: 70
               run: |
-                  node schedule.js
+                  node once_hook.js
               env:
                   #推送专用
                   PUSH_KEY: ${{ github.event.client_payload.PUSH_KEY || secrets.PUSH_KEY }}
@@ -49,5 +49,5 @@ jobs:
                   GITHUBUSER: ${{ secrets.GITHUBUSER }}
                   TRIGGER_KEYWORDS: jd_car_exchange
                   #CRONTAB
-                  CRONTAB: ${{ '0 0,1 0 * * *' }} #定时在每天0整执行一次
+                  CRONTAB: ${{ '0 0 0 * * *' }} #定时在每天0整执行一次
                   SYNCURL: https://github.com/wulove/jd_scripts/raw/master/jd_car_exchange.js
