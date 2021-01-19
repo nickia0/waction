@@ -1,11 +1,11 @@
-name: w工业品爱消除1
+name: oh天天领白条券
 
 on:
     workflow_dispatch:
     schedule:
-        - cron: "40 22 * * *"
+        - cron: "0 17,0 * * *"
     repository_dispatch:
-        types: schedule
+        types: t_baiTiao
 
 jobs:
     build:
@@ -21,9 +21,10 @@ jobs:
             - name: 安装依赖包
               run: |
                   npm install
-            - name: "运行【自定义工业品爱消除1】"
+            - name: "运行【oh天天领白条券】"
+              timeout-minutes: 70
               run: |
-                  node schedule.js
+                  node once_hook.js
               env:
                   #推送专用
                   PUSH_KEY: ${{ github.event.client_payload.PUSH_KEY || secrets.PUSH_KEY }}
@@ -44,10 +45,8 @@ jobs:
                   DO_NOT_FORK: ${{ github.event.client_payload.DO_NOT_FORK || secrets.DO_NOT_FORK }}
                   #GITHUB TOKEN
                   ACTIONS_TRIGGER_TOKEN: ${{ secrets.ACTIONS_TRIGGER_TOKEN }}
-                  REPO: ${{ secrets.REPO }}
+                  REPO: waction
                   GITHUBUSER: ${{ secrets.GITHUBUSER }}
-                  TRIGGER_KEYWORDS: jd_gyec_1
+                  TRIGGER_KEYWORDS: jd_baiTiao
                   #CRONTAB
-                  CRONTAB: ${{ '0 0/3 * * *' }} #定时在每天0整执行一次
-                  LONG_TIME_TRIGGER: true
-                  SYNCURL: https://github.com/wulove/jdloon/raw/master/jd_gyec.js
+                  CRONTAB: ${{ '0 0 0,9 * * *' }}
