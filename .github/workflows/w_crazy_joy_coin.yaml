@@ -2,8 +2,8 @@ name: w疯狂JOY挂机
 
 on:
     workflow_dispatch:
-    schedule:
-        - cron: "0 18 * * *"
+#    schedule:
+#        - cron: "0 18 * * *"
     repository_dispatch:
         types: schedule
 
