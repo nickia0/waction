@@ -6,7 +6,7 @@ name: 个护爱消除
 on:
     workflow_dispatch:
     schedule:
-        - cron: "0 * * * *"
+        - cron: "42 * * * *"
     watch:
         types: [started]
     repository_dispatch:
