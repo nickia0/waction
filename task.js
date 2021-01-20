@@ -1,8 +1,4 @@
-const exec = require("child_process").execSync;
 const cron = require("node-cron");
-const axios = require("axios");
-const fs = require("fs");
-const smartReplace = require("./smartReplace");
 
 //#region 全局变量
 
