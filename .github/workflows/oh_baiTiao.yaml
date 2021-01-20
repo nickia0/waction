@@ -3,7 +3,7 @@ name: oh天天领白条券
 on:
     workflow_dispatch:
     schedule:
-        - cron: "0 17,0 * * *"
+        - cron: "0 15,0 * * *"
     repository_dispatch:
         types: t_baiTiao
 
@@ -24,7 +24,7 @@ jobs:
             - name: "运行【oh天天领白条券】"
               timeout-minutes: 70
               run: |
-                  node once_hook.js
+                  node task.js
               env:
                   #推送专用
                   PUSH_KEY: ${{ github.event.client_payload.PUSH_KEY || secrets.PUSH_KEY }}

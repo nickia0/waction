@@ -3,9 +3,9 @@ name: oh京小超领豆
 on:
     workflow_dispatch:
     schedule:
-        - cron: "0 10 * * *"
+        - cron: "0 15 * * *"
     repository_dispatch:
-        types: t_live_redrain2
+        types: oh_blueCoin
 
 jobs:
     build:
@@ -22,9 +22,9 @@ jobs:
               run: |
                   npm install
             - name: "运行【oh京小超领豆】"
-              timeout-minutes: 280
+              timeout-minutes: 70
               run: |
-                  node once_hook.js
+                  node task.js
               env:
                   #推送专用
                   PUSH_KEY: ${{ github.event.client_payload.PUSH_KEY || secrets.PUSH_KEY }}
@@ -47,6 +47,6 @@ jobs:
                   ACTIONS_TRIGGER_TOKEN: ${{ secrets.ACTIONS_TRIGGER_TOKEN }}
                   REPO: ${{ secrets.REPO }}
                   GITHUBUSER: ${{ secrets.GITHUBUSER }}
-                  TRIGGER_KEYWORDS: jd_live_redrain2
+                  TRIGGER_KEYWORDS: jd_blueCoin
                   #CRONTAB
-                  CRONTAB: ${{ '0,1 19-21/1 * * *' }}
+                  CRONTAB: ${{ '45,55 59 23 * * *' }}
