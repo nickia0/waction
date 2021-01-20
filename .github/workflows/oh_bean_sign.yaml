@@ -5,7 +5,7 @@ on:
     schedule:
         - cron: "0 15 * * *"
     repository_dispatch:
-        types: jd_daily_bounds
+        types: oh_bean_sign
 
 jobs:
     build:
@@ -45,7 +45,7 @@ jobs:
                   DO_NOT_FORK: ${{ github.event.client_payload.DO_NOT_FORK || secrets.DO_NOT_FORK }}
                   #GITHUB TOKEN
                   ACTIONS_TRIGGER_TOKEN: ${{ secrets.ACTIONS_TRIGGER_TOKEN }}
-                  REPO: waction
+                  REPO: ${{ secrets.REPO }}
                   GITHUBUSER: ${{ secrets.GITHUBUSER }}
                   TRIGGER_KEYWORDS: jd_daily_bounds
                   #CRONTAB
