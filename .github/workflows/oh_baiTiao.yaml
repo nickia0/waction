@@ -50,4 +50,4 @@ jobs:
                   TRIGGER_KEYWORDS: jd_baiTiao
                   MAX_TIMES: 4
                   #CRONTAB
-                  CRONTAB: ${{ '45,55 59 8,23 * * *' }}
+                  CRONTAB: ${{ '35,50 59 8,23 * * *' }}
