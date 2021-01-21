@@ -13,7 +13,7 @@ let SELF_TRIGGER = process.env.SELF;
 let LONG_TIME_TRIGGER = process.env.LONG_TIME_TRIGGER == "true"; //用于判断脚本是否需要长时间执行,如果不需要记得在yaml中配置timeout-minutes
 let RUN_END_TIME = new Date().getTime() + 1000 * 60 * 358; //用于记录脚本结束时间,以配合LONG_TIME_TRIGGER实现持续唤醒
 
-let REMOTE_CONTENT = "";
+let MAX_TIMES = process.env.MAX_TIMES;
 //#endregion
 
 //#region 需要自行配置执行的地方
@@ -23,7 +23,7 @@ if (!CRONTAB) {
     return;
 }
 
-console.log("执行cron");
+let run_times = 0;
 var my_schedule = cron.schedule(
     CRONTAB,
     () => {
@@ -42,6 +42,14 @@ async function task1() {
     console.log("task running");
     var now_time = new Date().getTime();
     if (now_time < RUN_END_TIME) {
+        run_times++;
+        if (MAX_TIMES && run_times > MAX_TIMES) {
+            console.log("定时唤醒脚本次数以超" + MAX_TIMES + "次");
+            if (my_schedule) {
+                console.log("准备自我毁灭");
+                my_schedule.stop();
+            }
+        }
         hook(TRIGGER_KEYWORDS).then((res) => {
             if (res == 1) {
                 console.log("唤醒脚本"+TRIGGER_KEYWORDS+"成功");
