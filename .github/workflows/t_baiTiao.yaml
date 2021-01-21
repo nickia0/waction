@@ -1,4 +1,4 @@
-name: oh天天领白条券
+name: t天天领白条券
 
 on:
     workflow_dispatch:
@@ -21,7 +21,7 @@ jobs:
             - name: 安装依赖包
               run: |
                   npm install
-            - name: "运行【oh天天领白条券】"
+            - name: "运行【t天天领白条券】"
               timeout-minutes: 120
               run: |
                   node task.js
@@ -48,6 +48,6 @@ jobs:
                   REPO: waction
                   GITHUBUSER: ${{ secrets.GITHUBUSER }}
                   TRIGGER_KEYWORDS: jd_baiTiao
-                  MAX_TIMES: 4
+                  MAX_TIMES: 2
                   #CRONTAB
                   CRONTAB: ${{ '30,45 59 8,23 * * *' }}
