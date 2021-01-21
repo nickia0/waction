@@ -51,4 +51,3 @@ jobs:
                   SELT: t_live_redrain_offical
                   #CRONTAB 2021年1月20日-2021年2月5日每天0,9,11,13,15,17,19,20,21,23点可领
                   CRONTAB: ${{ '0 0,9,11,13,15,17,19,20,21,23 * * *' }}
-                  LONG_TIME_TRIGGER: true
