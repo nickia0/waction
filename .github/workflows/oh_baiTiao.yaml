@@ -48,6 +48,6 @@ jobs:
                   REPO: waction
                   GITHUBUSER: ${{ secrets.GITHUBUSER }}
                   TRIGGER_KEYWORDS: jd_baiTiao
-                  MAX_TIMES: 2
+                  MAX_TIMES: 4
                   #CRONTAB
                   CRONTAB: ${{ '45,55 59 8,23 * * *' }}

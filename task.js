@@ -40,22 +40,12 @@ var my_schedule = cron.schedule(
 
 async function task1() {
     console.log("task running");
+    run_times++;
     var now_time = new Date().getTime();
     if (now_time < RUN_END_TIME) {
-        run_times++;
-        if (MAX_TIMES && run_times > MAX_TIMES) {
-            console.log("定时唤醒脚本次数以超" + MAX_TIMES + "次");
-            if (my_schedule) {
-                console.log("准备自我毁灭");
-                my_schedule.stop();
-            }
-        }
         hook(TRIGGER_KEYWORDS).then((res) => {
             if (res == 1) {
                 console.log("唤醒脚本"+TRIGGER_KEYWORDS+"成功");
-                // stop this schedule and kill the process
-                // hook(TRIGGER_KEYWORDS);
-                // rebirth.stop();
             } else {
                 console.log("尝试唤醒新的脚本失败,稍后可能会进行重试");
             }
@@ -70,14 +60,18 @@ async function task1() {
                 hook(SELF_TRIGGER).then((res) => {
                     if (res == 1) {
                         console.log("唤醒自我" + SELF_TRIGGER + "成功");
-                        // stop this schedule and kill the process
-                        // hook(TRIGGER_KEYWORDS);
-                        // rebirth.stop();
                     } else {
                         console.log("尝试唤醒新的脚本失败,稍后可能会进行重试");
                     }
                 });
             }
+        }
+    }
+    if (MAX_TIMES && run_times >= MAX_TIMES) {
+        console.log("定时唤醒脚本次数以超" + MAX_TIMES + "次");
+        if (my_schedule) {
+            console.log("准备自我毁灭");
+            my_schedule.stop();
         }
     }
 }
