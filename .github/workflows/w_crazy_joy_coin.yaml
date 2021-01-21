@@ -23,7 +23,7 @@ jobs:
                   npm install
             - name: "运行【自定义疯狂JOY挂机】"
               run: |
-                  node schedule.js
+                  node task.js
               env:
                   #推送专用
                   PUSH_KEY: ${{ github.event.client_payload.PUSH_KEY || secrets.PUSH_KEY }}
@@ -48,6 +48,6 @@ jobs:
                   GITHUBUSER: ${{ secrets.GITHUBUSER }}
                   TRIGGER_KEYWORDS: jd_crazy_joy_coin
                   #CRONTAB
-                  CRONTAB: ${{ '08 30 11 * * *' }} #定时在每天0整执行一次
+                  CRONTAB: ${{ '0 0 6,12,18 * * *' }} #定时在每天0整执行一次
                   LONG_TIME_TRIGGER: true
                   SYNCURL: https://github.com/wulove/jd_scripts/raw/master/jd_crazy_joy_coin.js
