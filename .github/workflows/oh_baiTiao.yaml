@@ -3,7 +3,7 @@ name: oh天天领白条券
 on:
     workflow_dispatch:
     schedule:
-        - cron: "0 15,0 * * *"
+        - cron: "0 15,23 * * *"
     repository_dispatch:
         types: t_baiTiao
 
@@ -22,7 +22,7 @@ jobs:
               run: |
                   npm install
             - name: "运行【oh天天领白条券】"
-              timeout-minutes: 70
+              timeout-minutes: 120
               run: |
                   node task.js
               env:
