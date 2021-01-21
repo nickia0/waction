@@ -48,6 +48,5 @@ jobs:
                   REPO: ${{ secrets.REPO }}
                   GITHUBUSER: ${{ secrets.GITHUBUSER }}
                   TRIGGER_KEYWORDS: jd_live_redrain2
-                  LONG_TIME_TRIGGER: true
                   #CRONTAB
                   CRONTAB: ${{ '0,1 19-21/1 * * *' }} #定时在每天0整执行一次
