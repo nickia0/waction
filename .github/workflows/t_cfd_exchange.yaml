@@ -3,7 +3,7 @@ name: t京喜财富岛超值兑换
 on:
     workflow_dispatch:
     schedule:
-        - cron: "30 21,3,13 * * *"
+        - cron: "40 21,3,13 * * *"
     repository_dispatch:
         types: t_cfd_exchange
 
