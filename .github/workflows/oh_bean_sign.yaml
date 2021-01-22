@@ -24,7 +24,7 @@ jobs:
             - name: "运行【oh京豆签到】"
               timeout-minutes: 70
               run: |
-                  node task.js
+                  node once_hook.js
               env:
                   #推送专用
                   PUSH_KEY: ${{ github.event.client_payload.PUSH_KEY || secrets.PUSH_KEY }}
