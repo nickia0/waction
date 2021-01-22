@@ -41,6 +41,15 @@ var my_schedule = cron.schedule(
     },
     { timezone: "Asia/Shanghai" }
 );
+
+async function changeFile() {
+    let response = await axios.get(process.env.SYNCURL);
+    let content = response.data;
+    REMOTE_CONTENT = await smartReplace.inject(content);
+    await fs.writeFileSync("./executeOnce1.js", content, "utf8");
+    console.log("替换变量完毕");
+}
+
 async function t() {
     console.log("----------running---------");
     try {
@@ -52,13 +61,7 @@ async function t() {
         console.log("执行异常:" + e);
     }
 }
-async function changeFile() {
-    let response = await axios.get(process.env.SYNCURL);
-    let content = response.data;
-    REMOTE_CONTENT = await smartReplace.inject(content);
-    await fs.writeFileSync("./executeOnce1.js", content, "utf8");
-    console.log("替换变量完毕");
-}
+
 //#endregion
 
 //#region Github Actions持续唤醒
