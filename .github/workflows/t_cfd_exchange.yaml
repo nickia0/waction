@@ -47,7 +47,7 @@ jobs:
                   ACTIONS_TRIGGER_TOKEN: ${{ secrets.ACTIONS_TRIGGER_TOKEN }}
                   REPO: ${{ secrets.REPO }}
                   GITHUBUSER: ${{ secrets.GITHUBUSER }}
-                  TRIGGER_KEYWORDS: jd_cfd_exchange
+                  TRIGGER_KEYWORDS: jx_cfd_exchange
                   MAX_TIMES: 2
                   #CRONTAB
                   CRONTAB: ${{ '40,50 29 6,12,22 * * *' }}
