@@ -1,9 +1,9 @@
-name: oh京小超领豆
+name: t京小超领豆
 
 on:
     workflow_dispatch:
     schedule:
-        - cron: "0 15 * * *"
+        - cron: "9 15 * * *"
     repository_dispatch:
         types: oh_blueCoin
 
@@ -21,7 +21,7 @@ jobs:
             - name: 安装依赖包
               run: |
                   npm install
-            - name: "运行【oh京小超领豆】"
+            - name: "运行【t京小超领豆】"
               timeout-minutes: 70
               run: |
                   node task.js
@@ -48,5 +48,6 @@ jobs:
                   REPO: ${{ secrets.REPO }}
                   GITHUBUSER: ${{ secrets.GITHUBUSER }}
                   TRIGGER_KEYWORDS: jd_blueCoin
+                  MAX_TIMES: 2
                   #CRONTAB
                   CRONTAB: ${{ '45,55 59 23 * * *' }}

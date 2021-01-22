@@ -3,7 +3,7 @@ name: oh京东汽车兑换
 on:
     workflow_dispatch:
     schedule:
-        - cron: "0 15 * * *"
+        - cron: "10 15 * * *"
     repository_dispatch:
         types: oh_car_exchange
 
