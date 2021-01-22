@@ -31,16 +31,6 @@ if (!process.env.SYNCURL) {
     return;
 }
 
-var my_schedule = cron.schedule(
-    CRONTAB,
-    () => {
-        console.log(`北京时间 (UTC+08)：${new Date(new Date().getTime() + 8 * 60 * 60 * 1000).toLocaleString()}}`);
-        //每次运行前,检测之前的是否存在,存在的话则清理掉
-        if (my_schedule) my_schedule.stop();
-        t();
-    },
-    { timezone: "Asia/Shanghai" }
-);
 
 async function changeFile() {
     let response = await axios.get(process.env.SYNCURL);
@@ -61,6 +51,18 @@ async function t() {
         console.log("执行异常:" + e);
     }
 }
+
+var my_schedule = cron.schedule(
+    CRONTAB,
+    () => {
+        console.log(`北京时间 (UTC+08)：${new Date(new Date().getTime() + 8 * 60 * 60 * 1000).toLocaleString()}}`);
+        //每次运行前,检测之前的是否存在,存在的话则清理掉
+        if (my_schedule) my_schedule.stop();
+        t();
+    },
+    { timezone: "Asia/Shanghai" }
+);
+
 
 //#endregion
 
