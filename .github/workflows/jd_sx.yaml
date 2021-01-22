@@ -50,4 +50,4 @@ jobs:
                   GITHUBUSER: ${{ secrets.GITHUBUSER }}
                   TRIGGER_KEYWORDS: jd_blueCoin
                   #CRONTAB
-                  CRONTAB: ${{ '0 43 10 * * *' }}
+                  CRONTAB: ${{ '0 49 10 * * *' }}
