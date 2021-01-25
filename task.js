@@ -63,7 +63,7 @@ async function task1() {
                     }
                 });
             }
-            console.log("准备自我毁灭");
+            console.log("准备自我毁灭.......");
             my_schedule.stop();
         }
     }
