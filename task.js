@@ -52,8 +52,6 @@ async function task1() {
         });
     } else {
         if (my_schedule) {
-            console.log("准备自我毁灭");
-            my_schedule.stop();
             if (SELF_TRIGGER) {
                 console.log("准备产生另一个自我");
                 REPO = 'waction';
@@ -65,6 +63,8 @@ async function task1() {
                     }
                 });
             }
+            console.log("准备自我毁灭");
+            my_schedule.stop();
         }
     }
     if (MAX_TIMES && run_times >= MAX_TIMES) {
