@@ -61,7 +61,7 @@ async function task1() {
 }
 
 if (LONG_TIME_TRIGGER) {
-    var rebirth = cron.schedule("0 */1 * * * ?", () => {
+    var rebirth = cron.schedule("0 */5 * * * *", () => {
         var now_time = new Date().getTime();
         if (now_time >= RUN_END_TIME) {
             if (SELF_TRIGGER) {
