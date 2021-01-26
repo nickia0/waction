@@ -3,7 +3,7 @@ name: t超级直播红包雨
 on:
     workflow_dispatch:
     schedule:
-        - cron: "0 10 * * *"
+        - cron: "20 10 * * *"
     repository_dispatch:
         types: t_live_redrain2
 
