@@ -51,4 +51,4 @@ jobs:
                   SELT: t_live_redrain_half
                   LONG_TIME_TRIGGER: true
                   #CRONTAB 2021年1月20日-2021年2月5日每天12~23每个半点
-                  CRONTAB: ${{ '0 30,31 12-23/1 * * *' }}
+                  CRONTAB: ${{ '45 29,31 12-23/1 * * *' }}
