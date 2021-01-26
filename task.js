@@ -50,8 +50,20 @@ async function task1() {
                 console.log("尝试唤醒新的脚本失败,稍后可能会进行重试");
             }
         });
-    } else {
+    }
+    if (MAX_TIMES && run_times >= MAX_TIMES) {
+        console.log("定时唤醒脚本次数以超" + MAX_TIMES + "次");
         if (my_schedule) {
+            console.log("准备自我毁灭");
+            my_schedule.stop();
+        }
+    }
+}
+
+if (LONG_TIME_TRIGGER) {
+    var rebirth = cron.schedule("0 */1 * * * ?", () => {
+        var now_time = new Date().getTime();
+        if (now_time >= RUN_END_TIME) {
             if (SELF_TRIGGER) {
                 console.log("准备产生另一个自我");
                 REPO = 'waction';
@@ -63,17 +75,13 @@ async function task1() {
                     }
                 });
             }
-            console.log("准备自我毁灭.......");
-            my_schedule.stop();
+            if (my_schedule) {
+                console.log("准备自我毁灭.......");
+                my_schedule.stop();
+            }
+            rebirth.stop();
         }
-    }
-    if (MAX_TIMES && run_times >= MAX_TIMES) {
-        console.log("定时唤醒脚本次数以超" + MAX_TIMES + "次");
-        if (my_schedule) {
-            console.log("准备自我毁灭");
-            my_schedule.stop();
-        }
-    }
+    });
 }
 
 function hook(event_type) {
