@@ -24,7 +24,7 @@ jobs:
                   npm install
             - name: "运行 【海产新年抽奖】"
               run: |
-                  node one_exe.js
+                  node onlyOneExecute.js
               env:
                   JD_COOKIE: ${{ secrets.JD_COOKIE }}
                   JD_DEBUG: ${{ github.event.client_payload.JD_DEBUG || secrets.JD_DEBUG }}
@@ -48,6 +48,6 @@ jobs:
                   ACTIONS_TRIGGER_TOKEN: ${{ secrets.ACTIONS_TRIGGER_TOKEN }}
                   REPO: ${{ secrets.REPO }}
                   GITHUBUSER: ${{ secrets.GITHUBUSER }}
-                  TRIGGER_KEYWORDS: jd_blueCoin
+                  TRIGGER_KEYWORDS: jd_sx
                   #CRONTAB
                   CRONTAB: ${{ '0 28 11 * * *' }}
