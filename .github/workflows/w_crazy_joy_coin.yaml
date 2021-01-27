@@ -5,7 +5,7 @@ on:
 #    schedule:
 #        - cron: "0 18 * * *"
     repository_dispatch:
-        types: schedule
+        types: w_crazy_joy_coin
 
 jobs:
     build:
@@ -47,6 +47,7 @@ jobs:
                   REPO: ${{ secrets.REPO }}
                   GITHUBUSER: ${{ secrets.GITHUBUSER }}
                   TRIGGER_KEYWORDS: jd_crazy_joy_coin
+                  SELF: w_crazy_joy_coin
                   #CRONTAB
                   CRONTAB: ${{ '0 0 6,12,18 * * *' }} #定时在每天0整执行一次
                   LONG_TIME_TRIGGER: true
