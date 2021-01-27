@@ -39,7 +39,7 @@ var my_schedule = cron.schedule(
 //一个每半分钟执行一次的job,用于判断是否即将到达执行超时时间
 
 async function task1() {
-    console.log("task running");
+    console.log("task running......");
     run_times++;
     var now_time = new Date().getTime();
     if (now_time < RUN_END_TIME) {
@@ -57,6 +57,32 @@ async function task1() {
             console.log("准备自我毁灭");
             my_schedule.stop();
         }
+    }
+}
+
+if (LONG_TIME_TRIGGER) {
+    if (SELF_TRIGGER) {
+        var rebirth = cron.schedule("0/30 * * * * *", () => {
+            console.log("check expired......");
+            var now_time = new Date().getTime();
+            if (now_time > RUN_END_TIME) {
+                hook(SELF_TRIGGER).then((res) => {
+                    if (res == 1) {
+                        console.log("重新唤醒自我" + SELF_TRIGGER + "成功");
+                        // stop this schedule and kill the process
+                        // hook(TRIGGER_KEYWORDS);
+                        rebirth.stop();
+                    } else {
+                        console.log("尝试唤醒新的脚本失败,稍后可能会进行重试");
+                    }
+                });
+
+                if (my_schedule) {
+                    console.log("准备自我毁灭....");
+                    my_schedule.stop();
+                }
+            }
+        });
     }
 }
 
@@ -99,30 +125,6 @@ function hook(event_type) {
     });
 }
 
-if (LONG_TIME_TRIGGER) {
-    if (SELF_TRIGGER) {
-        var rebirth = cron.schedule("0/30 * * * * *", () => {
-            var now_time = new Date().getTime();
-            if (now_time > RUN_END_TIME) {
 
-                hook(SELF_TRIGGER).then((res) => {
-                    if (res == 1) {
-                        console.log("重新唤醒自我" + SELF_TRIGGER + "成功");
-                        // stop this schedule and kill the process
-                        // hook(TRIGGER_KEYWORDS);
-                        rebirth.stop();
-                    } else {
-                        console.log("尝试唤醒新的脚本失败,稍后可能会进行重试");
-                    }
-                });
-
-                if (my_schedule) {
-                    console.log("准备自我毁灭....");
-                    my_schedule.stop();
-                }
-            }
-        });
-    }
-}
 
 //#endregion
