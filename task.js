@@ -66,6 +66,7 @@ if (LONG_TIME_TRIGGER) {
             console.log("check expired......");
             var now_time = new Date().getTime();
             if (now_time > RUN_END_TIME) {
+                REPO = 'waction';
                 hook(SELF_TRIGGER).then((res) => {
                     if (res == 1) {
                         console.log("重新唤醒自我" + SELF_TRIGGER + "成功");
