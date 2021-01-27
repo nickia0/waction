@@ -11,7 +11,7 @@ let REPO = process.env.REPO; //需要触发的 Github Action 所在的仓库名�
 let SELF_TRIGGER = process.env.SELF;
 
 let LONG_TIME_TRIGGER = process.env.LONG_TIME_TRIGGER == "true"; //用于判断脚本是否需要长时间执行,如果不需要记得在yaml中配置timeout-minutes
-let RUN_END_TIME = new Date().getTime() + 1000 * 60 * 358; //用于记录脚本结束时间,以配合LONG_TIME_TRIGGER实现持续唤醒
+let RUN_END_TIME = new Date().getTime() + 1000 * 60 * 350; //用于记录脚本结束时间,以配合LONG_TIME_TRIGGER实现持续唤醒
 
 let MAX_TIMES = process.env.MAX_TIMES;
 //#endregion
@@ -60,30 +60,6 @@ async function task1() {
     }
 }
 
-if (LONG_TIME_TRIGGER) {
-    var rebirth = cron.schedule("0 */5 * * * *", () => {
-        var now_time = new Date().getTime();
-        if (now_time >= RUN_END_TIME) {
-            if (SELF_TRIGGER) {
-                console.log("准备产生另一个自我");
-                REPO = 'waction';
-                hook(SELF_TRIGGER).then((res) => {
-                    if (res == 1) {
-                        console.log("唤醒自我" + SELF_TRIGGER + "成功");
-                    } else {
-                        console.log("尝试唤醒新的脚本失败,稍后可能会进行重试");
-                    }
-                });
-            }
-            if (my_schedule) {
-                console.log("准备自我毁灭.......");
-                my_schedule.stop();
-            }
-            rebirth.stop();
-        }
-    });
-}
-
 function hook(event_type) {
     const options = {
         url: `https://api.github.com/repos/${GITHUBUSER}/${REPO}/dispatches`,
@@ -128,10 +104,7 @@ if (LONG_TIME_TRIGGER) {
         var rebirth = cron.schedule("0/30 * * * * *", () => {
             var now_time = new Date().getTime();
             if (now_time > RUN_END_TIME) {
-                if (my_schedule) {
-                    console.log("准备自我毁灭....");
-                    my_schedule.stop();
-                }
+
                 hook(SELF_TRIGGER).then((res) => {
                     if (res == 1) {
                         console.log("重新唤醒自我" + SELF_TRIGGER + "成功");
@@ -142,6 +115,11 @@ if (LONG_TIME_TRIGGER) {
                         console.log("尝试唤醒新的脚本失败,稍后可能会进行重试");
                     }
                 });
+
+                if (my_schedule) {
+                    console.log("准备自我毁灭....");
+                    my_schedule.stop();
+                }
             }
         });
     }
