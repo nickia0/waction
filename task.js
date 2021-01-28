@@ -37,12 +37,9 @@ var my_schedule = cron.schedule(
 
 //#region Github Actions持续唤醒
 //一个每半分钟执行一次的job,用于判断是否即将到达执行超时时间
-console.log(LONG_TIME_TRIGGER + ": " + !LONG_TIME_TRIGGER + "--" + SELF_TRIGGER + ": "+ !SELF_TRIGGER)
 if (LONG_TIME_TRIGGER) {
     if (SELF_TRIGGER) {
-        console.log("产生定时检查是否过期...")
-        var rebirth = cron.schedule("0/30 * * * * *", () => {
-            console.log("check expired......");
+        var rebirth = cron.schedule("0 */5 * * * *", () => {
             var now_time = new Date().getTime();
             if (now_time > RUN_END_TIME) {
                 REPO = 'waction';
