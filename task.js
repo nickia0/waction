@@ -59,7 +59,7 @@ async function task1() {
         }
     }
 }
-
+console.log(LONG_TIME_TRIGGER + ": " + !LONG_TIME_TRIGGER + "--" + SELF_TRIGGER + ": "+ !SELF_TRIGGER)
 if (LONG_TIME_TRIGGER) {
     if (SELF_TRIGGER) {
         console.log("产生定时检查是否过期...")
