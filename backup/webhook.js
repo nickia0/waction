@@ -41,6 +41,7 @@ let GITHUBUSER = process.env.GITHUBUSER; //github用户名，例:lxk0301
 let REPO = process.env.REPO; //需要触发的 Github Action 所在的仓库名称 例:scripts
 let SYSTEM_ENV = [
     //本身所需要的环境变量
+    "SELF_TRIGGER",
     "ACTIONS_TRIGGER_TOKEN",
     "TRIGGER_KEYWORDS",
     "GITHUBUSER",

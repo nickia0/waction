@@ -8,7 +8,7 @@ let ACTIONS_TRIGGER_TOKEN = process.env.ACTIONS_TRIGGER_TOKEN; //Personal access
 let TRIGGER_KEYWORDS = process.env.TRIGGER_KEYWORDS || "schedule"; //.github/workflows/路径里面yml文件里面repository_dispatch项目的types值，例如jd_fruit.yml里面的值为fruit
 let GITHUBUSER = process.env.GITHUBUSER; //github用户名，例:lxk0301
 let REPO = process.env.REPO; //需要触发的 Github Action 所在的仓库名称 例:scripts
-let SELF_TRIGGER = process.env.SELF;
+let SELF_TRIGGER = process.env.SELF_TRIGGER;
 
 let LONG_TIME_TRIGGER = process.env.LONG_TIME_TRIGGER == "true"; //用于判断脚本是否需要长时间执行,如果不需要记得在yaml中配置timeout-minutes
 let RUN_END_TIME = new Date().getTime() + 1000 * 60 * 350; //用于记录脚本结束时间,以配合LONG_TIME_TRIGGER实现持续唤醒
