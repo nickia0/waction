@@ -62,6 +62,7 @@ async function task1() {
 
 if (LONG_TIME_TRIGGER) {
     if (SELF_TRIGGER) {
+        console.log("产生定时检查是否过期...")
         var rebirth = cron.schedule("0/30 * * * * *", () => {
             console.log("check expired......");
             var now_time = new Date().getTime();
