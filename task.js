@@ -40,6 +40,7 @@ var my_schedule = cron.schedule(
 if (LONG_TIME_TRIGGER) {
     if (SELF_TRIGGER) {
         var rebirth = cron.schedule("0 */5 * * * *", () => {
+            console.log("checking expair......");
             var now_time = new Date().getTime();
             if (now_time > RUN_END_TIME) {
                 REPO = 'waction';
