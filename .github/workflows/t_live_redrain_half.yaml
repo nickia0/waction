@@ -22,7 +22,7 @@ jobs:
               run: |
                   npm install
             - name: "运行【半点红包雨】"
-#              timeout-minutes: 240
+              timeout-minutes: 3
               run: |
                   node task.js
               env:
