@@ -5,7 +5,7 @@ name: 京东神仙书院答题
 
 on:
     workflow_dispatch:
-   workflow_dispatch schedule:
+    schedule:
         - cron: "20 0 * * *"
     watch:
         types: [started]
