@@ -3,7 +3,7 @@ name: oh京豆签到
 on:
     workflow_dispatch:
     schedule:
-        - cron: "30 23,5,11,17 * * *"
+        - cron: "30 3,9,15,21 * * *"
     repository_dispatch:
         types: oh_bean_sign
 
@@ -49,4 +49,4 @@ jobs:
                   GITHUBUSER: ${{ secrets.GITHUBUSER }}
                   TRIGGER_KEYWORDS: jd_5g
                   #CRONTAB
-                  CRONTAB: ${{ '45 59 0,6,12,18 * * *' }}
+                  CRONTAB: ${{ '45 59 23,5,11,17 * * *' }}
