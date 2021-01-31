@@ -1,4 +1,4 @@
-name: oh京东汽车兑换
+name: oh_京东汽车兑换
 
 on:
     workflow_dispatch:

@@ -1,4 +1,4 @@
-name: oh京豆签到
+name: oh_京豆签到
 
 on:
     workflow_dispatch:
