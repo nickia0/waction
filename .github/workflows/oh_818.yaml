@@ -1,4 +1,4 @@
-name: oh_5G狂欢城
+name: oh_京东手机狂欢城
 
 on:
     workflow_dispatch:
@@ -21,7 +21,7 @@ jobs:
             - name: 安装依赖包
               run: |
                   npm install
-            - name: "运行【5G狂欢城】"
+            - name: "运行【京东手机狂欢城】"
               timeout-minutes: 70
               run: |
                   node once_hook.js
@@ -47,6 +47,6 @@ jobs:
                   ACTIONS_TRIGGER_TOKEN: ${{ secrets.ACTIONS_TRIGGER_TOKEN }}
                   REPO: waction
                   GITHUBUSER: ${{ secrets.GITHUBUSER }}
-                  TRIGGER_KEYWORDS: jd_5g
+                  TRIGGER_KEYWORDS: jd_818
                   #CRONTAB
-                  CRONTAB: ${{ '45 59 23,5,11,17 * * *' }}
+                  CRONTAB: ${{ '0 0 0-18/6 * * *' }}
