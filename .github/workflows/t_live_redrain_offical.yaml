@@ -1,4 +1,4 @@
-name: t官方号直播红包雨
+name: t_官方号直播红包雨
 
 on:
     workflow_dispatch:

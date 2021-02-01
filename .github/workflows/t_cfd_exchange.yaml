@@ -1,4 +1,4 @@
-name: t京喜财富岛超值兑换
+name: t_京喜财富岛超值兑换
 
 on:
     workflow_dispatch:

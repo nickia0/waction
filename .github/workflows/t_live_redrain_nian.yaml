@@ -1,4 +1,4 @@
-name: t年货直播红包雨
+name: t_年货直播红包雨
 
 on:
     workflow_dispatch:

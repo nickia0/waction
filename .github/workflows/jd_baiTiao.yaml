@@ -42,4 +42,5 @@ jobs:
                   JD_COOKIE: ${{ secrets.JD_COOKIE_1 }}
                   JD_DEBUG: ${{ github.event.client_payload.JD_DEBUG || secrets.JD_DEBUG }}
                   DO_NOT_FORK: ${{ github.event.client_payload.DO_NOT_FORK || secrets.DO_NOT_FORK }}
-                  SYNCURL: https://raw.githubusercontent.com/yangtingxiao/QuantumultX/master/scripts/jd/jd_baiTiao.js
+                  #SYNCURL: https://raw.githubusercontent.com/yangtingxiao/QuantumultX/master/scripts/jd/jd_baiTiao.js
+                  SYNCURL: https://github.com/wulove/jd_scripts/raw/master/jd_baiTiao.js

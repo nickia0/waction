@@ -1,4 +1,4 @@
-name: t天天领白条券
+name: t_天天领白条券
 
 on:
     workflow_dispatch:

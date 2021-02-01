@@ -1,4 +1,4 @@
-name: t半点红包雨
+name: t_半点红包雨
 
 on:
     workflow_dispatch:

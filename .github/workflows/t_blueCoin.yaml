@@ -1,4 +1,4 @@
-name: t京小超领豆
+name: t_京小超领豆
 
 on:
     workflow_dispatch:

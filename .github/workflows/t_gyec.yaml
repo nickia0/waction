@@ -1,4 +1,4 @@
-name: t工业品爱消除
+name: t_工业品爱消除
 
 on:
     workflow_dispatch:
