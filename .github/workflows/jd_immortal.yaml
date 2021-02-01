@@ -6,7 +6,7 @@ name: 京东神仙书院
 on:
     workflow_dispatch:
     schedule:
-        - cron: "0 0 * * *"
+        - cron: "0 0,4,14 * * *"
     watch:
         types: [started]
     repository_dispatch:
@@ -47,4 +47,3 @@ jobs:
                   PUSH_PLUS_TOKEN: ${{ github.event.client_payload.PUSH_PLUS_TOKEN || secrets.PUSH_PLUS_TOKEN }}
                   PUSH_PLUS_USER: ${{ github.event.client_payload.PUSH_PLUS_USER || secrets.PUSH_PLUS_USER }}
                   SYNCURL: https://github.com/wulove/jd_scripts/raw/master/jd_immortal.js
-                  JD_IMMORTAL_LATLON: ${{ '{"lat":121.4, "lng":28.6}' }}
