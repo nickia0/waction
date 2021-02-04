@@ -48,7 +48,6 @@ jobs:
                   GITHUBUSER: ${{ secrets.GITHUBUSER }}
                   TRIGGER_KEYWORDS: jd_crazy_joy_coin
                   SELF: w_crazy_joy_coin
+                  LONG_TIME_TRIGGER: true
                   #CRONTAB
                   CRONTAB: ${{ '0 0 6,12,18 * * *' }} #定时在每天0整执行一次
-                  LONG_TIME_TRIGGER: true
-                  SYNCURL: https://github.com/wulove/jd_scripts/raw/master/jd_crazy_joy_coin.js
