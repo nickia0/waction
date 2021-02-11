@@ -48,5 +48,7 @@ jobs:
                   REPO: waction
                   GITHUBUSER: ${{ secrets.GITHUBUSER }}
                   TRIGGER_KEYWORDS: jd_global_mh
+                  SELF_TRIGGER: t_global_mh
+                  LONG_TIME_TRIGGER: true
                   #CRONTAB
                   CRONTAB: ${{ '0 0 9,12,20,21 * * *' }}
