@@ -11,32 +11,7 @@ let REPO = process.env.REPO; //需要触发的 Github Action 所在的仓库名�
 let SELF_TRIGGER = process.env.SELF_TRIGGER;
 
 let LONG_TIME_TRIGGER = process.env.LONG_TIME_TRIGGER == "true"; //用于判断脚本是否需要长时间执行,如果不需要记得在yaml中配置timeout-minutes
-let RUN_END_TIME = new Date().getTime() + 1000 * 60 * 34
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-0; //用于记录脚本结束时间,以配合LONG_TIME_TRIGGER实现持续唤醒
+let RUN_END_TIME = new Date().getTime() + 1000 * 60 * 340; //用于记录脚本结束时间,以配合LONG_TIME_TRIGGER实现持续唤醒
 
 let MAX_TIMES = process.env.MAX_TIMES;
 //#endregion
