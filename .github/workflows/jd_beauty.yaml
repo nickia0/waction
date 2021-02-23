@@ -3,7 +3,7 @@ name: 美丽研究院
 on:
     workflow_dispatch:
     schedule:
-        - cron: "1 4,11,23 * * *"
+        - cron: "1 1,5,12,16 * * *"
     repository_dispatch:
         types: jd_beauty
 
@@ -42,4 +42,4 @@ jobs:
                   JD_COOKIE: ${{ secrets.JD_COOKIE }}
                   JD_DEBUG: ${{ github.event.client_payload.JD_DEBUG || secrets.JD_DEBUG }}
                   DO_NOT_FORK: ${{ github.event.client_payload.DO_NOT_FORK || secrets.DO_NOT_FORK }}
-                  SYNCURL: https://github.com/wulove/jd_scripts/raw/master/jd_beauty.js
+                  SYNCURL: https://github.com/wulove/jd_scripts/raw/master/jd_mlyjy.js
