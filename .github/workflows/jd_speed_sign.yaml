@@ -33,6 +33,7 @@ jobs:
                   JD_COOKIE: ${{ github.event.client_payload.JD_COOKIE || secrets.JD_COOKIE }}
                   JD_DEBUG: ${{ github.event.client_payload.JD_DEBUG || secrets.JD_DEBUG }}
                   JD_USER_AGENT: ${{ github.event.client_payload.JD_USER_AGENT || secrets.JD_USER_AGENT }}
+                  JS_USER_AGENT: ${{ 'jdltapp;iPhone;3.1.0;12.0.1;d27a6dbe585636a0c2eead74556f73373dd71231;network/4g;hasUPPay/0;pushNoticeIsOpen/1;lang/zh_CN;model/iPhone8,1;addressid/86971581;hasOCPay/0;appBuild/1017;supportBestPay/0;pv/318.14;apprpd/;ref/JDLTTaskListViewController;psq/2;ads/;psn/d27a6dbe585636a0c2eead74556f73373dd71231|891;jdv/0|kong|t_1000170135|tuiguang|notset|1612593523780|1612593523;adk/;app_device/IOS;pap/JA2020_3112531|3.1.0|IOS 12.0.1;Mozilla/5.0 (iPhone; CPU iPhone OS 12_0_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/16A404;supportJDSHWK/1' }}
                   PUSH_KEY: ${{ github.event.client_payload.PUSH_KEY || secrets.PUSH_KEY }}
                   BARK_PUSH: ${{ github.event.client_payload.BARK_PUSH || secrets.BARK_PUSH }}
                   BARK_SOUND: ${{ github.event.client_payload.BARK_SOUND || secrets.BARK_SOUND }}
