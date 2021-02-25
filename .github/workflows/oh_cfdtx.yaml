@@ -49,4 +49,4 @@ jobs:
                   GITHUBUSER: ${{ secrets.GITHUBUSER }}
                   TRIGGER_KEYWORDS: jx_cfdtx
                   #CRONTAB
-                  CRONTAB: ${{ '1 0 22-28 2 *' }}
+                  CRONTAB: ${{ '0 0 0 * * *' }}
