@@ -3,7 +3,7 @@ name: oh_财富岛提现
 on:
     workflow_dispatch:
     schedule:
-        - cron: "12 17 * * *"
+        - cron: "22 15 * * *"
     repository_dispatch:
         types: jx_cfdtx
 
