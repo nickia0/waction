@@ -217,6 +217,9 @@ async function downloader_jd() {
             "京喜农场分享码"
         );
     }
+    if (remoteContent.indexOf("JS_USER_AGENTS") > 0) {
+        await download("https://github.com/wulove/jd_scripts/raw/master/JS_USER_AGENTS.js", "./JS_USER_AGENTS.js", "极速版云端UA");
+    }
 }
 
 async function downloader_notify() {
