@@ -3,7 +3,7 @@ name: 百变大咖秀
 on:
     workflow_dispatch:
     schedule:
-        - cron: "10 2,3 * * 2-5"
+        - cron: "10 16,17 * * "
     repository_dispatch:
         types: jd_entertainment
 
